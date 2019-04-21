@@ -1,0 +1,10 @@
+{
+  "name": "itinerario-cotia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Willian Home <willian@wiki4fit.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
