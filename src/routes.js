@@ -8,4 +8,6 @@ routes.post("/usuarios", handle(UserController.store));
 
 routes.get("/usuarios", handle(UserController.show));
 
+routes.delete("/usuarios/:id", handle(UserController.destroy));
+
 module.exports = routes;

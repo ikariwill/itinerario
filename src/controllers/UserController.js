@@ -14,9 +14,22 @@ class UserController {
   }
 
   async show(req, res) {
-    const users = User.find({});
+    const users = await User.find({});
+    res.json(users);
+  }
 
-    return res.json(users);
+  async update(req, res) {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    });
+
+    return res.json(ad);
+  }
+
+  async destroy(req, res) {
+    await User.findByIdAndDelete(req.params.id);
+
+    return res.send();
   }
 }
 
