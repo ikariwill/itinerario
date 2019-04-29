@@ -23,7 +23,7 @@ class UserController {
       new: true
     });
 
-    return res.json(ad);
+    return res.json(user);
   }
 
   async destroy(req, res) {
