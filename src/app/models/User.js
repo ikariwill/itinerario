@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const mongooseHidden = require("mongoose-hidden")();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -17,13 +18,16 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    require: true
+    require: true,
+    hide: true
   },
   createdAt: {
     type: Date,
     default: Date.now
   }
 });
+
+UserSchema.plugin(mongooseHidden);
 
 UserSchema.pre("save", async function(next) {
   if (!this.isModified("password")) {

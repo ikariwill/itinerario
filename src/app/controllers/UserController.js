@@ -13,9 +13,14 @@ class UserController {
     return res.json(user);
   }
 
-  async show(req, res) {
+  async index(req, res) {
     const users = await User.find({});
     res.json(users);
+  }
+
+  async show(req, res) {
+    const user = await User.findById(req.params.id);
+    res.json(user);
   }
 
   async update(req, res) {

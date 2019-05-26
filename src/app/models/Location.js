@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate");
 
 const LocationSchema = new mongoose.Schema({
-  name: {
+  nome: {
     type: String,
     require: true
   },
@@ -42,5 +43,7 @@ const LocationSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
+LocationSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model("Location", LocationSchema);
