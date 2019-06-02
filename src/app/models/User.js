@@ -18,8 +18,7 @@ const UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    require: true,
-    hide: true
+    require: true
   },
   createdAt: {
     type: Date,
@@ -27,7 +26,7 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-UserSchema.plugin(mongooseHidden);
+UserSchema.plugin(mongooseHidden, { hidden: { _id: false, password: true } });
 
 UserSchema.pre("save", async function(next) {
   if (!this.isModified("password")) {

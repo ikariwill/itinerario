@@ -35,7 +35,6 @@ routes.post("/reviews", handle(ReviewController.store));
 
 // routes.delete("/reviews/:id", handle(ReviewController.destroy));
 
-routes.get("/reviews", handle(ReviewController.index));
-routes.get("/reviews/:id", handle(ReviewController.show));
+routes.get("/reviews/:id", handle(ReviewController.index));
 
 module.exports = routes;

@@ -33,6 +33,9 @@ const LocationSchema = new mongoose.Schema({
   telefone: {
     type: String
   },
+  stars: {
+    type: Number
+  },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

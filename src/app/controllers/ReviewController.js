@@ -14,19 +14,16 @@ class ReviewController {
       filters.nome = new RegExp(req.query.nome, "i");
     }
 
+    filters.location = req.params.id;
+
     const reviews = await Review.paginate(filters, {
       page: req.query.page || 1,
       limit: 20,
-      populate: ["author", "location"],
+      populate: ["author"],
       sort: "-createdAt"
     });
 
     return res.json(reviews);
-  }
-
-  async show(req, res) {
-    const review = await review.findById(req.params.id);
-    res.json(review);
   }
 }
 

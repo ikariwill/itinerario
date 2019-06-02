@@ -4,7 +4,8 @@ const mongoosePaginate = require("mongoose-paginate");
 const ReviewSchema = new mongoose.Schema({
   stars: {
     type: Number,
-    require: true
+    require: true,
+    default: 0
   },
   comment: {
     type: String
