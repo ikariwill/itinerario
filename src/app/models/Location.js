@@ -27,10 +27,20 @@ const LocationSchema = new mongoose.Schema({
     require: true
   },
   cep: {
+    type: String
+  },
+  horario: {
     type: String,
     require: true
   },
+  imagem: {
+    type: String,
+    required: true
+  },
   telefone: {
+    type: String
+  },
+  link: {
     type: String
   },
   stars: {

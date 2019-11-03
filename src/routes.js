@@ -21,9 +21,9 @@ routes.get("/usuarios/:id", handle(UserController.show));
 // ROTA DE LOCAIS
 routes.post("/locations", handle(LocationController.store));
 
-// routes.put("/locations/:id", handle(LocationController.update));
+routes.put("/locations/:id", handle(LocationController.update));
 
-// routes.delete("/locations/:id", handle(LocationController.destroy));
+routes.delete("/locations/:id", handle(LocationController.destroy));
 
 routes.get("/locations", handle(LocationController.index));
 routes.get("/locations/:id", handle(LocationController.show));

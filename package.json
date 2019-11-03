@@ -2,7 +2,7 @@
   "name": "itinerario-cotia",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Willian Home <willian@wiki4fit.com.br>",
+  "author": "Leandro",
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/index.js",

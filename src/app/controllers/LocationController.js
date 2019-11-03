@@ -1,12 +1,6 @@
 const Location = require("../models/Location");
 
 class LocationController {
-  async store(req, res) {
-    const location = await Location.create(req.body);
-
-    res.json(location);
-  }
-
   async index(req, res) {
     const filters = {};
 
@@ -27,6 +21,26 @@ class LocationController {
   async show(req, res) {
     const location = await Location.findById(req.params.id);
     res.json(location);
+  }
+
+  async store(req, res) {
+    const location = await Location.create(req.body);
+
+    res.json(location);
+  }
+
+  async update(req, res) {
+    const location = await Location.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    });
+
+    return res.json(location);
+  }
+
+  async destroy(req, res) {
+    await Location.findByIdAndDelete(req.params.id);
+
+    return res.send();
   }
 }
 
