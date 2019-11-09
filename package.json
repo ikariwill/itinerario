@@ -5,7 +5,8 @@
   "author": "Leandro",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
     "hr": "nodemon src/index.js"
   },
   "dependencies": {
