@@ -3,12 +3,14 @@ const User = require("../models/User");
 class UserController {
   async index(req, res) {
     const users = await User.find({});
-    res.json(users);
+
+    return res.json(users);
   }
 
   async show(req, res) {
     const user = await User.findById(req.params.id);
-    res.json(user);
+
+    return res.json(user);
   }
 
   async store(req, res) {

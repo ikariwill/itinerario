@@ -5,18 +5,20 @@ const handle = require("express-async-handler");
 const {
   UserController,
   LocationController,
-  ReviewController
+  ReviewController,
+  LikeController,
+  DislikeController
 } = require("./app/controllers");
 
 // ROTA USUARIO
-routes.post("/usuarios", handle(UserController.store));
+routes.post("/users", handle(UserController.store));
 
-routes.put("/usuarios/:id", handle(UserController.update));
+routes.put("/users/:id", handle(UserController.update));
 
-routes.delete("/usuarios/:id", handle(UserController.destroy));
+routes.delete("/users/:id", handle(UserController.destroy));
 
-routes.get("/usuarios", handle(UserController.index));
-routes.get("/usuarios/:id", handle(UserController.show));
+routes.get("/users", handle(UserController.index));
+routes.get("/users/:id", handle(UserController.show));
 
 // ROTA DE LOCAIS
 routes.post("/locations", handle(LocationController.store));
@@ -27,6 +29,12 @@ routes.delete("/locations/:id", handle(LocationController.destroy));
 
 routes.get("/locations", handle(LocationController.index));
 routes.get("/locations/:id", handle(LocationController.show));
+
+// ROTA DE LIKES
+routes.post("/locations/:id/likes", handle(LikeController.store));
+
+// ROTA DE DISLIKES
+routes.post("/locations/:id/dislikes", handle(DislikeController.store));
 
 // ROTA DE AVALIACOES
 routes.post("/reviews", handle(ReviewController.store));

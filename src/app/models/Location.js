@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
+const { Schema, model } = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate");
 
-const LocationSchema = new mongoose.Schema({
+const LocationSchema = new Schema({
   nome: {
     type: String,
     require: true
@@ -43,11 +43,20 @@ const LocationSchema = new mongoose.Schema({
   link: {
     type: String
   },
-  stars: {
-    type: Number
-  },
+  likes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
+  dislikes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
   author: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "User",
     required: true
   },
@@ -59,4 +68,4 @@ const LocationSchema = new mongoose.Schema({
 
 LocationSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model("Location", LocationSchema);
+module.exports = model("Location", LocationSchema);

@@ -4,7 +4,7 @@ class ReviewController {
   async store(req, res) {
     const review = await Review.create(req.body);
 
-    res.json(review);
+    return res.json(review);
   }
 
   async index(req, res) {
